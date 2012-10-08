@@ -1,0 +1,12 @@
+.box {
+	background: red;
+	position: relative;
+	width: 100px;
+	height: 100px;
+	//@include transition(all 1s ease-in-out);
+
+	#toggler:checked ~ & {
+		background: green;
+		left: 300px;
+	}
+}
