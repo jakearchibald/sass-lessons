@@ -1,0 +1,25 @@
+// info page
+	.info-page {
+		overflow: hidden;
+		background: #9199A4;
+		color: #fff;
+		text-shadow: 0 -1px 0 rgba(#000, 0.7);
+
+		& p {
+			font-size: 14px;
+		}
+
+		& .med-button {
+			margin: 40px 5px 10px;
+		}
+	}
+
+// Venue page
+	.venue-page {
+		& .sub-title-strong {
+			margin: 6px 0;
+		}
+		& .venue-map {
+			margin-top: 9px;
+		}
+	}

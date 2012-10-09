@@ -1,0 +1,75 @@
+// promo links
+	.promo-link {
+		border: 2px solid #fff;
+		display: block;
+		background: #3878BF;
+		color: #fff;
+		text-decoration: none;
+		font-weight: bold;
+		line-height: 1;
+		position: relative;
+
+		& > .after {
+			position: absolute;
+			top: 50%;
+			right: 12px;
+			width: 21px;
+			height: 20px;
+			margin-top: -10px;
+			@include sprite1(-88px -64px);
+		}
+
+		& .title {
+			color: #fff;
+			text-shadow: 0 -1px 0 #204674;
+			font-size: 16px;
+			margin: 9px 12px 0;
+		}
+
+		& .sub-title {
+			color: #E8F0F8;
+			text-shadow: 0 -1px 0 #204674;
+			margin: 0 12px 10px;
+		}
+
+		&.icon {
+			& > .before {
+				position: absolute;
+				top: 50%;
+				left: 10px;
+				width: 24px;
+				height: 24px;
+				margin-top: -12px;
+				@include sprite1(-59px -64px);
+			}
+			& .title,
+			& .sub-title {
+				margin-left: 43px;
+			}
+		} 
+	}
+
+// alert banners
+	.alert-banner {
+		background: #fff;
+		font-size: 15px;
+		border-radius: 3px;
+		color: #C56BB5;
+		padding: 4px 5px;
+		font-weight: bold;
+		text-align: center;
+		line-height: 1;
+	}
+	.alert-banner-alt-1 {
+		background: #64B030;
+		color: #fff;
+	}
+	.alert-banner-alt-2 {
+		background: #3C80CA;
+		color: #fff;
+	}
+	.alert-banner-alt-3 {
+		background: #EF7100;
+		padding: 8px 5px;
+		color: #fff;
+	}
