@@ -1,0 +1,39 @@
+.page {
+	max-width: 70em;	
+	margin: 0 auto;
+}
+.content-margins {
+	margin: 10px;
+
+	@include respond-min(60em) {
+		margin: 20px;
+	}
+	@include respond-min(75em) {
+		margin: 40px;
+	}
+}
+.primary {
+	@include respond-min(45em) {
+		float: left;
+		width: 70%;
+
+		@include old-ie {
+			// These hacks won't appear in the normal stylesheet
+			display: inline;
+			// IE6 & 7 only
+			*zoom: 1;
+			// IE6 only
+			_whatever-ie-needs: le-sigh;
+		}
+
+		& .content-margins {
+			margin-right: 30px;
+		}
+	}
+}
+.secondary {
+	@include respond-min(45em) {
+		float: left;
+		width: 30%;
+	}
+}

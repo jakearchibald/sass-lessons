@@ -1,0 +1,44 @@
+// Stuff in this file applies to tag names only - use sparingly
+body {
+	font-family: sans-serif;
+	line-height: 1.5;
+	margin: 0;
+}
+h1 {
+	font-family: Cambria, Georgia, serif;
+	font-size: 2em;
+	line-height: 1.3em;
+	margin: 0 0 0.5em;
+
+	section & {
+		font-size: 1.5em;
+	}
+}
+pre,
+code {
+	font-family: monospace, serif;
+    font-size: 1em;
+
+    @include old-ie {
+    	_font-family: 'courier new', monospace;
+    }
+}
+pre code {
+	display: block;
+	background: #eee;
+	border: 1px solid #ccc;
+	overflow: auto;
+	padding: 10px;
+	font-size: 0.8em;
+
+	@include respond-min(45em) {
+		font-size: 0.9em;
+	}
+}
+a:link, a:visited {
+	color: #1065bf;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}

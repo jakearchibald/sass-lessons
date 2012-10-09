@@ -47,7 +47,6 @@
 	background: red;
 	width: 100px;
 	height: 100px;
-	// @include transition(/* both properties by one second, ease in & out */);
 
 	#toggler:checked ~ & {
 		@include animation(dance 0.5s linear infinite alternate);

@@ -4,7 +4,7 @@
 		height: 200px;
 	}
 	.gradient-1 {
-		@include linear-gradient(to right, blue, red);
+		//@include linear-gradient(to right, blue, red);
 	}
 	.gradient-2 {
 
