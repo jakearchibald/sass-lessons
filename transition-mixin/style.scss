@@ -3,7 +3,7 @@
 	position: relative;
 	width: 100px;
 	height: 100px;
-	//@include transition(all 1s ease-in-out);
+	// @include transition(/* both properties by one second, ease in & out */);
 
 	#toggler:checked ~ & {
 		background: green;
