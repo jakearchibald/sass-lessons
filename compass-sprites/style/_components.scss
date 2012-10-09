@@ -1,0 +1,66 @@
+$social-icons-map: sprite-map("social-icons/*.png", 
+	$spacing: 1px, 
+	$layout: horizontal
+);
+
+// icons
+	.i {
+		width: 48px;
+		height: 48px;
+		margin: 5px 0;
+		display: inline-block;
+		vertical-align: middle;
+		background: $social-icons-map no-repeat;
+	}
+
+	.i-amazon {
+		background-position: sprite-position($social-icons-map, amazon);
+	}
+	.i-creativecommons {
+		background-position: sprite-position($social-icons-map, creativecommons);
+	}
+	.i-email {
+		background-position: sprite-position($social-icons-map, email);
+	}
+	.i-facebook {
+		background-position: sprite-position($social-icons-map, facebook);
+	}
+	.i-feed {
+		background-position: sprite-position($social-icons-map, feed);
+	}
+	.i-flickr {
+		background-position: sprite-position($social-icons-map, flickr);
+	}
+	.i-foursquare {
+		background-position: sprite-position($social-icons-map, foursquare);
+	}
+	.i-github {
+		background-position: sprite-position($social-icons-map, github);
+	}
+	.i-google {
+		background-position: sprite-position($social-icons-map, google);
+	}
+	.i-instagram {
+		background-position: sprite-position($social-icons-map, instagram);
+	}
+	.i-lanyrd {
+		background-position: sprite-position($social-icons-map, lanyrd);
+	}
+	.i-lastfm {
+		background-position: sprite-position($social-icons-map, lastfm);
+	}
+	.i-linkedin {
+		background-position: sprite-position($social-icons-map, linkedin);
+	}
+	.i-reddit {
+		background-position: sprite-position($social-icons-map, reddit);
+	}
+	.i-speakerdeck {
+		background-position: sprite-position($social-icons-map, speakerdeck);
+	}
+	.i-twitter {
+		background-position: sprite-position($social-icons-map, twitter);
+	}
+	.i-youtube {
+		background-position: sprite-position($social-icons-map, youtube);
+	}
