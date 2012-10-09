@@ -1,0 +1,13 @@
+// Animation
+	@mixin animation($type) {
+		@each $prefix in -webkit-, -moz-, -o-, '' {
+			#{$prefix}animation: $type;
+		}
+	}
+
+// Transforms
+	@mixin transform($type) {
+		@each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+			#{$prefix}transform: $type;
+		}
+	}

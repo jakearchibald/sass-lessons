@@ -1,0 +1,55 @@
+@-webkit-keyframes dance {
+	0% {
+		@include transform(translate(0, 50px) rotate(-10deg));
+	}
+	50% {
+		@include transform(translate(50px, 0));
+	}
+	100% {
+		@include transform(translate(100px, 50px) rotate(10deg));
+	}
+}
+@-moz-keyframes dance {
+	0% {
+		@include transform(translate(0, 50px) rotate(-10deg));
+	}
+	50% {
+		@include transform(translate(50px, 0));
+	}
+	100% {
+		@include transform(translate(100px, 50px) rotate(10deg));
+	}
+}
+@-o-keyframes dance {
+	0% {
+		@include transform(translate(0, 50px) rotate(-10deg));
+	}
+	50% {
+		@include transform(translate(50px, 0));
+	}
+	100% {
+		@include transform(translate(100px, 50px) rotate(10deg));
+	}
+}
+@keyframes dance {
+	0% {
+		@include transform(translate(0, 50px) rotate(-10deg));
+	}
+	50% {
+		@include transform(translate(50px, 0));
+	}
+	100% {
+		@include transform(translate(100px, 50px) rotate(10deg));
+	}
+}
+
+.box {
+	background: red;
+	width: 100px;
+	height: 100px;
+	// @include transition(/* both properties by one second, ease in & out */);
+
+	#toggler:checked ~ & {
+		@include animation(dance 0.5s linear infinite alternate);
+	}
+}
