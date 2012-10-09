@@ -1,0 +1,62 @@
+@mixin linear-gradient($args...) {
+	$start: 2;
+	$direction: -jake-direction-degs( nth($args, 1) );
+
+	// direction is optional - deal with it
+	@if ($direction == false) {
+		$start: 1;
+		$direction: 0;
+	}
+
+	// deal with direction
+	$standard: ($direction);
+	// old syntax angles started east, and ran anti-clockwise
+	$old: ($direction * -1 + 90deg);
+
+	// loop through color stops
+	@for $i from $start through length($args) {
+		$old: append($old, nth($args, $i), comma);
+		$standard: append($standard, nth($args, $i), comma);
+	}
+
+	background-image: -webkit-linear-gradient($old);
+	background-image: -moz-linear-gradient($old);
+	background-image: linear-gradient($standard);
+}
+
+@function -jake-direction-degs($direction) {
+	@if type-of($direction) == 'number' {
+		@if unit($direction) == 'deg' {
+			@return $direction;
+		}
+		@else {
+			@warn "Invalid gradient direction - only deg unit supported supported";
+			@return 0;
+		}
+	}
+	@if $direction == (to top) {
+		@return 0deg;
+	}
+	@if $direction == (to top right) or $direction == (to right top) {
+		@return 45deg;
+	}
+	@if $direction == (to right) {
+		@return 90deg;
+	}
+	@if $direction == (to bottom right) or $direction == (to right bottom) {
+		@return 135deg;
+	}
+	@if $direction == (to bottom) {
+		@return 180deg;
+	}
+	@if $direction == (to bottom left) or $direction == (to left bottom) {
+		@return 225deg;
+	}
+	@if $direction == (to left) {
+		@return 270deg;
+	}
+	@if $direction == (to top left) or $direction == (to left top) {
+		@return 315deg;
+	}
+	@return false;
+}

@@ -1,0 +1,11 @@
+// Gradient tests
+	.gradient-1,
+	.gradient-2 {
+		height: 200px;
+	}
+	.gradient-1 {
+		@include linear-gradient(to right, blue, red);
+	}
+	.gradient-2 {
+
+	}
