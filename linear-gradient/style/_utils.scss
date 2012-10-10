@@ -1,62 +1,114 @@
+// Multi-stop linear gradients for old-webkit, old-w3 and new w3 gradients
+//
+// usage: @include linear-gradient($direction, $color-stop, $color-stop...);
+// example: @include linear-gradient(to right, red, blue);
+// example: @include linear-gradient(to left top, red, rgba(red, 0));
+// example: @include linear-gradient(to top, red, blue 25%, green);
 @mixin linear-gradient($args...) {
-	$start: 2;
-	$direction: -jake-direction-degs( nth($args, 1) );
-
-	// direction is optional - deal with it
-	@if ($direction == false) {
-		$start: 1;
-		$direction: 0;
-	}
+	$to-direction: nth($args, 1);
 
 	// deal with direction
-	$standard: ($direction);
-	// old syntax angles started east, and ran anti-clockwise
-	$old: ($direction * -1 + 90deg);
+	// old syntax is the origin of the gradient, not the destination
+	// interpolation makes it "to right" rather than "to, right"
+	$old: #{-jtc-from-direction($to-direction)};
+	// the old old webkit syntax
+	$old-webkit: linear, -jtc-webkit-direction($to-direction);
 
+	$args-len: length($args);
 	// loop through color stops
-	@for $i from $start through length($args) {
-		$old: append($old, nth($args, $i), comma);
-		$standard: append($standard, nth($args, $i), comma);
-	}
-
-	background-image: -webkit-linear-gradient($old);
-	background-image: -moz-linear-gradient($old);
-	background-image: linear-gradient($standard);
-}
-
-@function -jake-direction-degs($direction) {
-	@if type-of($direction) == 'number' {
-		@if unit($direction) == 'deg' {
-			@return $direction;
+	@for $i from 2 through $args-len {
+		$color-stop: nth($args, $i);
+		$old: append($old, $color-stop, comma);
+		
+		@if length($color-stop) == 2 {
+			$old-webkit: append($old-webkit, color-stop(nth($color-stop, 2), nth($color-stop, 1)));
 		}
 		@else {
-			@warn "Invalid gradient direction - only deg unit supported supported";
-			@return 0;
+			// we have to provide a stop position for webkit
+			$old-webkit: append($old-webkit, color-stop(($i - 2) / ($args-len - 2), $color-stop));
 		}
 	}
-	@if $direction == (to top) {
-		@return 0deg;
+
+	background-image: -webkit-gradient($old-webkit);
+	background-image: -moz-linear-gradient($old);
+	background-image: -o-linear-gradient($old);
+	background-image: linear-gradient($args);
+}
+
+// Multi-stop linear gradients for old-webkit, old-w3, new w3 gradients
+// and old IE filter syntax.
+//
+// usage: as linear-gradient, but only "to bottom" and "to right" supported
+//        for directions, and $from & $to cannot contain positions
+// example: @include linear-gradient(to right, red, blue);
+// example: @include linear-gradient(to bottom, red, rgba(red, 0));
+@mixin linear-gradient-inc-ie($to-direction, $from, $to) {
+	@if $to-direction == (to bottom) or $to-direction == (to right) {
+		@include linear-gradient($to-direction, $from, $to);
+		filter: progid:DXImageTransform.Microsoft.gradient(
+			startColorstr=#{ie-hex-str($from)},
+			endColorstr=#{ie-hex-str($to)},
+			GradientType=#{if($to-direction == (to right), 1, 0)}
+		);
 	}
-	@if $direction == (to top right) or $direction == (to right top) {
-		@return 45deg;
+	@else {
+		@warn "IE doesn't support direction" + $to-direction;
 	}
-	@if $direction == (to right) {
-		@return 90deg;
+}
+
+@function -jtc-from-direction($to-direction) {
+	@if $to-direction == (to top) {
+		@return bottom;
 	}
-	@if $direction == (to bottom right) or $direction == (to right bottom) {
-		@return 135deg;
+	@if $to-direction == (to top right) or $to-direction == (to right top) {
+		@return bottom left;
 	}
-	@if $direction == (to bottom) {
-		@return 180deg;
+	@if $to-direction == (to right) {
+		@return left;
 	}
-	@if $direction == (to bottom left) or $direction == (to left bottom) {
-		@return 225deg;
+	@if $to-direction == (to bottom right) or $to-direction == (to right bottom) {
+		@return top left;
 	}
-	@if $direction == (to left) {
-		@return 270deg;
+	@if $to-direction == (to bottom) {
+		@return top;
 	}
-	@if $direction == (to top left) or $direction == (to left top) {
-		@return 315deg;
+	@if $to-direction == (to bottom left) or $to-direction == (to left bottom) {
+		@return top right;
 	}
-	@return false;
+	@if $to-direction == (to left) {
+		@return right;
+	}
+	@if $to-direction == (to top left) or $to-direction == (to left top) {
+		@return bottom right;
+	}
+	@warn "Invalid direction syntax";
+	@return top;
+}
+
+@function -jtc-webkit-direction($to-direction) {
+	@if $to-direction == (to top) {
+		@return left bottom, left top;
+	}
+	@if $to-direction == (to top right) or $to-direction == (to right top) {
+		@return left bottom, right top;
+	}
+	@if $to-direction == (to right) {
+		@return left top, right top;
+	}
+	@if $to-direction == (to bottom right) or $to-direction == (to right bottom) {
+		@return left top, right bottom;
+	}
+	@if $to-direction == (to bottom) {
+		@return left top, left bottom;
+	}
+	@if $to-direction == (to bottom left) or $to-direction == (to left bottom) {
+		@return right top, left bottom;
+	}
+	@if $to-direction == (to left) {
+		@return right top, left top;
+	}
+	@if $to-direction == (to top left) or $to-direction == (to left top) {
+		@return right bottom, left top;
+	}
+	@return top, bottom;
 }
