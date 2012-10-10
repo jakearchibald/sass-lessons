@@ -52,7 +52,7 @@
 		);
 	}
 	@else {
-		@warn "IE doesn't support direction" + $to-direction;
+		@warn "IE doesn't support direction " + $to-direction;
 	}
 }
 
