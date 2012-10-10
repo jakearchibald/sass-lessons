@@ -7,9 +7,8 @@
 @mixin linear-gradient($to-direction, $color-stops...) {
 	// the old old webkit syntax
 	$old-webkit: linear, -jtc-webkit-direction($to-direction);
-
 	$color-stops-len: length($color-stops);
-	
+
 	// loop through color stops
 	@for $i from 1 through $color-stops-len {
 		$color-stop: nth($color-stops, $i);
@@ -22,10 +21,12 @@
 		}
 	}
 
+	$from-direction: -jtc-from-direction($to-direction); 
+
 	background-image: -webkit-gradient($old-webkit);
 	// old syntax is the origin of the gradient, not the destination
-	background-image: -moz-linear-gradient(-jtc-from-direction($to-direction), $color-stops);
-	background-image: -o-linear-gradient(-jtc-from-direction($to-direction), $color-stops);
+	background-image: -moz-linear-gradient($from-direction, $color-stops);
+	background-image: -o-linear-gradient($from-direction, $color-stops);
 	background-image: linear-gradient($to-direction, $color-stops);
 }
 
