@@ -4,35 +4,29 @@
 // example: @include linear-gradient(to right, red, blue);
 // example: @include linear-gradient(to left top, red, rgba(red, 0));
 // example: @include linear-gradient(to top, red, blue 25%, green);
-@mixin linear-gradient($args...) {
-	$to-direction: nth($args, 1);
-
-	// deal with direction
-	// old syntax is the origin of the gradient, not the destination
-	// interpolation makes it "to right" rather than "to, right"
-	$old: #{-jtc-from-direction($to-direction)};
+@mixin linear-gradient($to-direction, $color-stops...) {
 	// the old old webkit syntax
 	$old-webkit: linear, -jtc-webkit-direction($to-direction);
 
-	$args-len: length($args);
+	$color-stops-len: length($color-stops);
+	
 	// loop through color stops
-	@for $i from 2 through $args-len {
-		$color-stop: nth($args, $i);
-		$old: append($old, $color-stop, comma);
-		
+	@for $i from 1 through $color-stops-len {
+		$color-stop: nth($color-stops, $i);
 		@if length($color-stop) == 2 {
 			$old-webkit: append($old-webkit, color-stop(nth($color-stop, 2), nth($color-stop, 1)));
 		}
 		@else {
 			// we have to provide a stop position for webkit
-			$old-webkit: append($old-webkit, color-stop(($i - 2) / ($args-len - 2), $color-stop));
+			$old-webkit: append($old-webkit, color-stop(($i - 1) / ($color-stops-len - 1), $color-stop));
 		}
 	}
 
 	background-image: -webkit-gradient($old-webkit);
-	background-image: -moz-linear-gradient($old);
-	background-image: -o-linear-gradient($old);
-	background-image: linear-gradient($args);
+	// old syntax is the origin of the gradient, not the destination
+	background-image: -moz-linear-gradient(-jtc-from-direction($to-direction), $color-stops);
+	background-image: -o-linear-gradient(-jtc-from-direction($to-direction), $color-stops);
+	background-image: linear-gradient($to-direction, $color-stops);
 }
 
 // Multi-stop linear gradients for old-webkit, old-w3, new w3 gradients
