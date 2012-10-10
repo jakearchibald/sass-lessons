@@ -1,0 +1,1 @@
+sass --style compressed --compass --update style:style

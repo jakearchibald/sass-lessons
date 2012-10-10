@@ -1,9 +1,10 @@
+
+// icons
 $social-icons-map: sprite-map("social-icons/*.png", 
 	$spacing: 1px, 
 	$layout: horizontal
 );
-
-// icons
+	
 	.i {
 		width: 48px;
 		height: 48px;

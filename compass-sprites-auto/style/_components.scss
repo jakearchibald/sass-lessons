@@ -1,0 +1,13 @@
+// icons
+	.i {
+		width: 48px;
+		height: 48px;
+		margin: 5px 0;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	$social-icons-spacing: 1px;
+	$social-icons-layout: horizontal;
+	@import "social-icons/*.png";
+	@include all-social-icons-sprites;
