@@ -4,7 +4,7 @@
 		height: 200px;
 	}
 	.gradient-1 {
-		@include linear-gradient(to bottom right, red, green, rgba(red, 0));
+		@include linear-gradient-inc-ie(to right, green, rgba(green, 0));
 	}
 	.gradient-2 {
 

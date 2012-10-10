@@ -1,0 +1,14 @@
+.main-nav {
+	overflow: hidden;
+
+	.nav-item {
+		display: block;
+
+		.primary {
+			font-weight: bold;
+		}
+		span {
+			color: blue;
+		}
+	}
+}
