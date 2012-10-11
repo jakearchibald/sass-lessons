@@ -1,9 +1,17 @@
+@mixin transition($spec...) {
+	-webkit-transition: $spec;
+	-moz-transition:    $spec;
+	-ms-transition:     $spec;
+	-o-transition:      $spec;
+	transition:         $spec;
+}
+
 .box {
 	background: red;
 	position: relative;
 	width: 100px;
 	height: 100px;
-	// @include transition(/* both properties by one second, ease in & out */);
+	@include transition(all 1s ease-in-out);
 
 	#toggler:checked ~ & {
 		background: green;
