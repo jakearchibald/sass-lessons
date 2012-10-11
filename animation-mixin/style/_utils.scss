@@ -5,6 +5,13 @@
 		}
 	}
 
+	@mixin keyframes($name) {
+		@-webkit-keyframes $name { @content; }
+		@-moz-keyframes    $name { @content; }
+		@-o-keyframes      $name { @content; }
+		@keyframes         $name { @content; }
+	}
+
 // Transforms
 	@mixin transform($type) {
 		@each $prefix in -webkit-, -moz-, -ms-, -o-, '' {

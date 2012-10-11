@@ -1,37 +1,4 @@
-@-webkit-keyframes dance {
-	0% {
-		@include transform(translate(0, 50px) rotate(-10deg));
-	}
-	50% {
-		@include transform(translate(50px, 0));
-	}
-	100% {
-		@include transform(translate(100px, 50px) rotate(10deg));
-	}
-}
-@-moz-keyframes dance {
-	0% {
-		@include transform(translate(0, 50px) rotate(-10deg));
-	}
-	50% {
-		@include transform(translate(50px, 0));
-	}
-	100% {
-		@include transform(translate(100px, 50px) rotate(10deg));
-	}
-}
-@-o-keyframes dance {
-	0% {
-		@include transform(translate(0, 50px) rotate(-10deg));
-	}
-	50% {
-		@include transform(translate(50px, 0));
-	}
-	100% {
-		@include transform(translate(100px, 50px) rotate(10deg));
-	}
-}
-@keyframes dance {
+@include keyframes(dance) {
 	0% {
 		@include transform(translate(0, 50px) rotate(-10deg));
 	}
