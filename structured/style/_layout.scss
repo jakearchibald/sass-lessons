@@ -1,29 +1,31 @@
-.columns {
-	display: table;
-	width: 100%;
-
-	& > .col {
-		display: table-cell;
-		vertical-align: top; // fixes iOS layout bug
+// Columns
+	.columns {
+		display: table;
 		width: 100%;
 
-		&.col-shrink {
-			width: 0;
-		}
-	}
-
-	&.columns-equal {
-		table-layout: fixed;
-
 		& > .col {
-			width: auto;
+			display: table-cell;
+			vertical-align: top; // fixes iOS layout bug
+			width: 100%;
+
+			&.col-shrink {
+				width: 0;
+			}
+		}
+
+		&.columns-equal {
+			table-layout: fixed;
+
+			& > .col {
+				width: auto;
+			}
 		}
 	}
-}
 
-.box-flow {
-	& > .box-flow-box {
-		display: inline-block;
-		vertical-align: top;
+// Box flows
+	.box-flow {
+		& > .box-flow-box {
+			display: inline-block;
+			vertical-align: top;
+		}
 	}
-}
