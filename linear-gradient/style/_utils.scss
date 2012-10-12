@@ -45,6 +45,7 @@
 			endColorstr=#{ie-hex-str($to)},
 			GradientType=#{if($to-direction == (to right), 1, 0)}
 		);
+		zoom: 1;
 	}
 	@else {
 		@warn "IE doesn't support direction " + $to-direction;
