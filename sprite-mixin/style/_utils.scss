@@ -1,5 +1,5 @@
-@mixin social-sprite($pos) {
-	background: url('imgs/sprite1.png') no-repeat $pos;
+%social-sprite {
+	background: url('imgs/social-sprites.png') no-repeat;
 	width: 24px;
 	height: 24px;
 
@@ -7,7 +7,7 @@
 	       only screen and (-o-min-device-pixel-ratio: 3/2),
 	       only screen and (-webkit-min-device-pixel-ratio: 1.5),
 	       only screen and (min-resolution: 1.5dppx) {
-		background-image: url('imgs/sprite1@2x.png');
+		background-image: url('imgs/social-sprites@2x.png');
 		background-size: 199px auto;
 	}
 }
