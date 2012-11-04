@@ -1,9 +1,9 @@
 // Responsive stuff
-	$fix-mqs: false !default;
+	$fixed-responsive-size: false !default;
 
 	@mixin respond-min($width) {
-		@if $fix-mqs {
-			@if $fix-mqs >= $width {
+		@if $fixed-responsive-size {
+			@if $fixed-responsive-size >= $width {
 				@content;	
 			}
 		}
@@ -14,8 +14,8 @@
 		}
 	}
 	@mixin respond-max($width) {
-		@if $fix-mqs {
-			@if $fix-mqs < $width {
+		@if $fixed-responsive-size {
+			@if $fixed-responsive-size < $width {
 				@content;	
 			}
 		}
