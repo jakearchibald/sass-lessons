@@ -13,6 +13,7 @@
 			}
 		}
 	}
+	
 	@mixin respond-max($width) {
 		@if $pretend-width {
 			@if $pretend-width < $width {
