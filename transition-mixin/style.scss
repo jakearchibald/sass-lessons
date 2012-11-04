@@ -1,7 +1,6 @@
 @mixin transition($spec...) {
 	-webkit-transition: $spec;
 	-moz-transition:    $spec;
-	-ms-transition:     $spec;
 	-o-transition:      $spec;
 	transition:         $spec;
 }
