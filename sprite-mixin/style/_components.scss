@@ -1,0 +1,48 @@
+.icon-lanyrd {
+	@include social-sprite(0 0);
+}
+.icon-twitter {
+	@include social-sprite(-25px 0);
+}
+.icon-speakerdeck {
+	@include social-sprite(-50px 0);
+}
+.icon-dribble {
+	@include social-sprite(-75px 0);
+}
+.icon-github {
+	@include social-sprite(-100px 0);
+}
+.icon-dopplr {
+	@include social-sprite(-125px 0);
+}
+.icon-web {
+	@include social-sprite(-150px 0);
+}
+.icon-mail {
+	@include social-sprite(-175px 0);
+}
+.icon-hashtag {
+	@include social-sprite(0 -25px);
+}
+.icon-contact {
+	@include social-sprite(-25px -25px);
+}
+.icon-foursquare {
+	@include social-sprite(-50px -25px);
+}
+.icon-facebook {
+	@include social-sprite(-75px -25px);
+}
+.icon-linkedin {
+	@include social-sprite(-100px -25px);
+}
+.icon-google {
+	@include social-sprite(-125px -25px);
+}
+.icon-flickr {
+	@include social-sprite(-150px -25px);
+}
+.icon-me {
+	@include social-sprite(-175px -25px);
+}

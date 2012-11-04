@@ -1,9 +1,9 @@
 // Responsive stuff
-	$fixed-responsive-size: false !default;
+	$pretend-width: false !default;
 
 	@mixin respond-min($width) {
-		@if $fixed-responsive-size {
-			@if $fixed-responsive-size >= $width {
+		@if $pretend-width {
+			@if $pretend-width >= $width {
 				@content;	
 			}
 		}
@@ -13,9 +13,10 @@
 			}
 		}
 	}
+	
 	@mixin respond-max($width) {
-		@if $fixed-responsive-size {
-			@if $fixed-responsive-size < $width {
+		@if $pretend-width {
+			@if $pretend-width < $width {
 				@content;	
 			}
 		}
@@ -23,14 +24,5 @@
 			@media screen and (max-width: $width) {
 				@content;
 			}
-		}
-	}
-
-// Old IE stuff
-	$old-ie: false !default;
-
-	@mixin old-ie {
-		@if $old-ie {
-			@content;
 		}
 	}
