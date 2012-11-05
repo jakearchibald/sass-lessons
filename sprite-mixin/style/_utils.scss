@@ -2,6 +2,7 @@
 	background: url('imgs/social-sprites.png') no-repeat $pos;
 	width: 24px;
 	height: 24px;
+	display: inline-block;
 
 	@media only screen and (min--moz-device-pixel-ratio: 1.5),
 	       only screen and (-o-min-device-pixel-ratio: 3/2),
